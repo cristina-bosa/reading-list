@@ -1,0 +1,17 @@
+@import '_color';
+
+button{
+  background-color: @primary;
+  color: @light;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: darken(@primary, 10%);
+  }
+  &:focus{
+    outline: none;
+  }
+}
