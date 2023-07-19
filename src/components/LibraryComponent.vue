@@ -260,18 +260,29 @@ export default {
 
 .library{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   grid-gap: 1.5rem;
   
 }
 .single-book{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
   justify-content: center;
-  padding: 1rem;
+  gap: 1rem;
   background-color: lighten(@dark, 90%);
+  padding: 1rem;
   border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0.05rem 0 1rem lighten(@dark, 90%);
+  }
+  img{
+    transform: scale(2);
+    box-shadow: 0.05rem 0 1rem lighten(@dark, 40%);
+    filter: brightness(0.8);
+  }
 }
 
 

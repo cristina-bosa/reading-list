@@ -1,3 +1,4 @@
+@import '_color';
 @font-face {
   font-family: Excon;
   src: url('../fonts/Excon-Variable.woff2');
@@ -10,3 +11,21 @@
   font-weight: 100 900;
 }
 
+.text-light{
+  color: @light;
+}
+.text-primary{
+  color: @primary;
+}
+.text-secondary{
+  color: @secondary;
+}
+.text-dark{
+  color: @dark;
+}
+.text-bold{
+  font-weight: 800;
+}
+.text-grey{
+  color: darken(@light, 40%);
+}

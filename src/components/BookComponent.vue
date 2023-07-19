@@ -1,16 +1,23 @@
 <template>
-    <img :src="book.cover" alt="book.title" height="250" />
-    <h3>{{ book.title }}</h3>
-    <p>{{ book.author.name }}</p>
-    <p>
-      <span class="tag">{{ book.genre }}</span>
-    </p>      
-    <button @click="addToCart(book)">Add</button>
+    <img :src="book.cover" alt="book.title" height="250"/>
+    <section>
+      <h3 class="text-bold text-secondary">{{ book.title }}</h3>
+      <p>
+        <span class="tag">{{ book.genre }}</span>
+      </p>      
+      <p class="text-grey">{{ book.author.name }}</p>
+      <p>{{ book.synopsis }}</p>
+    </section>
+    <section>
+      <img src="@/assets/icons/plus.svg" alt="Add to cart" height="24" width="24">
+      <iconPlus></iconPlus>
+      <button @click="addList(book)">Add</button>
+    </section>
 </template>
 
 <script lang="ts">
-import Book from '@/interfaces/Book.interface';
-
+import Book from '@/types/Book.interface';
+import iconPlus from '@/components/icons/iconPlus.vue'
 export default {
   props: {
     book: {
@@ -19,14 +26,17 @@ export default {
     }    
   },
   methods: {
-    addToCart(book: Book) {
+    addList(book: Book) {
       console.log({book})
     }
   },
     setup() {
 
 
-    return {}
+      return {
+        iconPlus
+
+    }
   }
 }
 </script>
@@ -34,21 +44,10 @@ export default {
 <style lang="less" scoped>
 @import "@/assets/all.less";
 .tag{
-  background-color: #f5f5f5;
+  background-color: lighten(@secondary, 33.4%);
+  color: @secondary;
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  &:hover{
-    background-color: darken(#f5f5f5, 10%);
-  }
-}
-img{
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease-in-out;
-  &:hover{
-    height: 350px;
-    box-shadow: 0 0.05rem 0.5rem @dark
-  }
 }
 </style>

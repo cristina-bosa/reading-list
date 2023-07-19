@@ -6,12 +6,18 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      title: 'Home'
+    }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFoundView',
     component: NotFoundView,
+    meta: {
+      title: 'Error 404'
+    }
   }
 ]
 
